@@ -1,0 +1,52 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    
+    <p>Witaj: {{ user }}</p>
+    <p> <a href="{{ url('kupon_stawka', {'id':  id }) }}">Dodaj nowy kupon</a></p>
+      <p> <a href="{{ url('moje_kupony', {'id':  id }) }}">Moje kupony</a></p>
+    <table border="1">
+    {% for mecz in mecz %}
+        <tr>
+            <td>
+                {{ mecz.id }}
+            </td>
+        
+            <td>
+                {{ mecz.druzyna1 }}
+            </td>
+            <td>
+                {{ mecz.bramki1 }}
+                 : 
+                {{ mecz.bramki2 }}
+            </td>
+            
+            <td>
+                {{ mecz.druzyna2 }}
+            </td>
+            <td>
+                {{ mecz.typ1 }}
+            </td>
+            
+            <td>
+                {{ mecz.typ1x }}
+            </td>
+            
+            <td>
+                {{ mecz.typx }}
+            </td>
+            
+            <td>
+                {{ mecz.typ2 }}
+            </td>
+            
+            <td>
+                {{ mecz.typ2x }}
+            </td>
+        </tr>
+        
+    
+            
+    {% endfor %}
+    </table>
+{% endblock %}  

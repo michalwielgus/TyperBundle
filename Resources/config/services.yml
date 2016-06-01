@@ -1,0 +1,7 @@
+parameters:
+#    acme_typer.example.class: Acme\TyperBundle\Example
+
+services:
+#    acme_typer.example:
+#        class: %acme_typer.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

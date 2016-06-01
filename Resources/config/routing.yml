@@ -1,0 +1,39 @@
+acme_typer_homepage:
+    pattern:  /panel
+    defaults: { _controller: AcmeTyperBundle:Default:index }
+
+login:
+     pattern:   /login
+     defaults:  { _controller: AcmeTyperBundle:Default:login }
+
+login_check:
+     pattern:   /login_check
+     
+user_add:
+    pattern: /add/{name}
+    defaults:  { _controller: AcmeTyperBundle:Default:user }
+    
+dodaj_kupon:
+    pattern: /nowy/{id}/{kwota}
+    defaults:  { _controller: AcmeTyperBundle:Default:nowykupon }
+    
+kupon_edycja:
+    pattern: /edycja/{id_kuponu}
+    defaults:  { _controller: AcmeTyperBundle:Default:kuponedycja } 
+    
+obstawianie:
+    pattern: /edycja/{id_kuponu}/{id_meczu}/{typ}
+    defaults:  { _controller: AcmeTyperBundle:Default:dodajtyp } 
+    
+moje_kupony:
+    pattern: /mojekupony/{id}
+    defaults:  { _controller: AcmeTyperBundle:Default:mojekupony } 
+    
+kupon_sprawdz:
+    pattern: /mojekupony/sprawdz/{id}
+    defaults:  { _controller: AcmeTyperBundle:Default:kuponsprawdz }
+    
+kupon_stawka:
+    pattern: /stawka/{id}
+    defaults:  { _controller: AcmeTyperBundle:Default:ustawstawke } 
+    

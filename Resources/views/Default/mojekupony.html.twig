@@ -1,0 +1,22 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <h1>Moje Kupony</h1>
+    <table border ="1">
+         <tr>
+            <td>Id Kuponu</td>
+            <td>Stawka</td>
+            <td>Status</td>
+        </tr>
+        
+    {% for kupony in kupony %}
+        <tr>
+            <td>{{ kupony.id }}</td>
+            <td>{{ kupony.stawka }}</td>
+            <td><a href="{{ url('kupon_sprawdz', {'id':  kupony.id }) }}">{{ kupony.status }}</a></td>
+        </tr>
+    {% endfor %}
+    </table>
+    <a href="{{ url('acme_typer_homepage')}}">Wróć do menu głównego</a>
+    
+{% endblock %}

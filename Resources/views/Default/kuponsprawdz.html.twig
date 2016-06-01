@@ -1,0 +1,112 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <h1>Kupon nr: </h1>
+    
+    <table border="1">
+        <tr>
+            <td>Id meczu</td>
+            <td>Gospodarz</td>
+            <td>-</td>
+            <td>Przyjezdny</td>
+            <td>Twój Typ</td>
+            <td>Wynik</td>
+            <td>Stawka dla Twojego typu</td>
+        </tr>
+        {% for dodane in dodane %}
+        <tr>
+            <td>{{ dodane.idmeczu }}</td>
+            <td>{{ dodane.meczid.druzyna1 }}</td>
+            <td>-</td>
+            
+            <td>{{ dodane.meczid.druzyna2 }}</td>
+            <td> {{ dodane.typ }}</td>
+            <td> {{ dodane.meczid.wyniktyp }}</td>
+            <td> {{ dodane.stawka }}</td>
+        </tr>
+        {% endfor  %}
+    </table>
+    
+   <h1>Poprawne typy: </h1>
+    
+    <table border="1">
+        <tr>
+            <td>Id meczu</td>
+            <td>Gospodarz</td>
+            <td>-</td>
+            <td>Przyjezdny</td>
+            <td>Twój Typ</td>
+            <td>Wynik</td>
+            <td>Stawka dla Twojego typu</td>
+        </tr>
+        {% for poprawne in poprawne %}
+        <tr>
+            <td>{{ poprawne.idmeczu }}</td>
+            <td>{{ poprawne.meczid.druzyna1 }}</td>
+            <td>-</td>
+            
+            <td>{{ poprawne.meczid.druzyna2 }}</td>
+            <td> {{ poprawne.typ }}</td>
+            <td> {{ poprawne.meczid.wyniktyp }}</td>
+            <td> {{ poprawne.stawka }}</td>
+        </tr>
+        {% endfor  %}
+    </table>
+    <h1>Niepoprawne typy: </h1>
+    
+    <table border="1">
+        <tr>
+            <td>Id meczu</td>
+            <td>Gospodarz</td>
+            <td>-</td>
+            <td>Przyjezdny</td>
+            <td>Twój Typ</td>
+            <td>Wynik</td>
+            <td>Stawka dla Twojego typu</td>
+        </tr>
+        {% for niepoprawne in niepoprawne %}
+        <tr>
+            <td>{{ niepoprawne.idmeczu }}</td>
+            <td>{{ niepoprawne.meczid.druzyna1 }}</td>
+            <td>-</td>
+            
+            <td>{{ niepoprawne.meczid.druzyna2 }}</td>
+            <td> {{ niepoprawne.typ }}</td>
+            <td> {{ niepoprawne.meczid.wyniktyp }}</td>
+            <td> {{ niepoprawne.stawka }}</td>
+        </tr>
+        {% endfor  %}
+    </table>
+    
+     <h1>Nierozegrane mecze: </h1>
+    
+    <table border="1">
+        <tr>
+            <td>Id meczu</td>
+            <td>Gospodarz</td>
+            <td>-</td>
+            <td>Przyjezdny</td>
+            <td>Twój Typ</td>
+            <td>Wynik</td>
+            <td>Stawka dla Twojego typu</td>
+        </tr>
+        {% for nierozegrane in nierozegrane %}
+        <tr>
+            <td>{{ nierozegrane.idmeczu }}</td>
+            <td>{{ nierozegrane.meczid.druzyna1 }}</td>
+            <td>-</td>
+            
+            <td>{{ nierozegrane.meczid.druzyna2 }}</td>
+            <td> {{ nierozegrane.typ }}</td>
+            <td> {{ nierozegrane.meczid.wyniktyp }}</td>
+            <td> {{ nierozegrane.stawka }}</td>
+        </tr>
+        {% endfor  %}
+    </table>
+        
+        <h1>{{ komunikat }} </h1>
+        <h3>Stawka: {{ stawka }} </h3>
+        <h3>Twoja wygrana: {{ kurs }}</h3>
+        <a href="{{ url('acme_typer_homepage')}}">Wróć do menu głównego</a>
+      
+{% endblock %}

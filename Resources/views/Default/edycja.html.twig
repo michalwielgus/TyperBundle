@@ -1,0 +1,97 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    
+    <p>Edycja kuponu numer: {{ id_kuponu }}</p>
+    
+    <table border="1">
+        
+        <tr>
+            <td>Id meczu</td>
+            <td>Gospodarz</td>
+            <td>Wynik</td>
+            <td>Przyjezdny</td>
+            <td>Typ "1"</td>
+            <td>Typ "1x"</td>
+            <td>Typ "x"</td>
+            <td>Typ "2"</td>
+            <td>Typ "2x"</td>
+        </tr>
+    {% for mecz in mecz %}
+        <tr>
+            <td>
+                {{ mecz.id }}
+            </td>
+        
+            <td>
+                {{ mecz.druzyna1 }}
+            </td>
+            <td>
+                {{ mecz.bramki1 }}
+                 : 
+                {{ mecz.bramki2 }}
+            </td>
+            
+            <td>
+                {{ mecz.druzyna2 }}
+            </td>
+            <td>
+                {{ mecz.typ1 }}
+                <a href="{{ url('obstawianie', {'id_kuponu':  id_kuponu, 'typ': '1', 'id_meczu': mecz.id }) }}"><img src="{{ asset('typuj.png') }}" alt="Typuj!" width="20" height="20" /></a>
+            </td>
+            
+            <td>
+                {{ mecz.typ1x }}
+                <a href="{{ url('obstawianie', {'id_kuponu':  id_kuponu, 'typ': '1x', 'id_meczu': mecz.id }) }}"><img src="{{ asset('typuj.png') }}" alt="Typuj!" width="20" height="20" /></a>
+            </td>
+            
+            <td>
+                {{ mecz.typx }}
+                <a href="{{ url('obstawianie', {'id_kuponu':  id_kuponu, 'typ': 'x', 'id_meczu': mecz.id }) }}"><img src="{{ asset('typuj.png') }}" alt="Typuj!" width="20" height="20" /></a>
+            </td>
+            
+            <td>
+                {{ mecz.typ2 }}
+                <a href="{{ url('obstawianie', {'id_kuponu':  id_kuponu, 'typ': '2', 'id_meczu': mecz.id }) }}"><img src="{{ asset('typuj.png') }}" alt="Typuj!" width="20" height="20" /></a>
+            </td>
+            
+            <td>
+                {{ mecz.typ2x }}
+                <a href="{{ url('obstawianie', {'id_kuponu':  id_kuponu, 'typ': '2x', 'id_meczu': mecz.id }) }}"><img src="{{ asset('typuj.png') }}" alt="Typuj!" width="20" height="20" /></a>
+            </td>
+        </tr>
+        
+    
+            
+    {% endfor %}
+    </table>
+    
+    
+    <p>Pozycje w kuponie:</p>
+    
+    <table border="1">
+        <tr>
+            <td>Id meczu</td>
+            <td>Gospodarz</td>
+            <td>-</td>
+            <td>Przyjezdny</td>
+            <td>Twój Typ</td>
+        </tr>
+        {% for dodane in dodane %}
+        <tr>
+            <td>{{ dodane.idmeczu }}</td>
+            <td>{{ dodane.meczid.druzyna1 }}</td>
+            <td>-</td>
+            
+            <td>{{ dodane.meczid.druzyna2 }}</td>
+            <td> {{ dodane.typ }}</td>
+        </tr>
+        {% endfor  %}
+    </table>
+    
+        <a href="{{ url('acme_typer_homepage')}}">Zapisz kupon</a>
+            
+   
+            
+            
+{% endblock %}  

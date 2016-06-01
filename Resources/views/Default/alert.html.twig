@@ -1,0 +1,8 @@
+<script>
+    if(window.confirm("Typowałeś już mecz w tym kuponie!")) {
+    window.location.replace("{{ url('kupon_edycja', {'id_kuponu':  id_kuponu})}}");
+}
+else {
+    window.location.replace("{{ url('kupon_edycja', {'id_kuponu':  id_kuponu})}}");
+}
+    </script>
